@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
-import Header from './Header';
-import FeedPicker from './FeedPicker';
+import Header from './child_components/Header';
+import FeedPicker from './child_components/FeedPicker';
 
 class App extends Component {
   render() {

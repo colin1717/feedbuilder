@@ -1,0 +1,30 @@
+.feedpicker {
+  background-color: white;
+  height: 500px;
+  padding: 10px;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+}
+
+.feedpicker-button {
+  width: 170px;
+}
+
+.order-explanation {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.order-explanation-well {
+  background-color: #fcfcfc;
+  text-align: center;
+}
+
+.small-title {
+  color: rgb(20, 158, 125);
+  font-size: 13pt;
+}
