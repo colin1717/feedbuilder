@@ -1,0 +1,20 @@
+.header {
+  height: 70px;
+  background-color: rgb(1, 63, 78);
+}
+
+img {
+  height: 55px;
+  margin-top: 10px;
+}
+
+.header-flex {
+  display: flex;
+}
+
+.title-font {
+  color: rgb(20, 158, 125);
+  font-size: 24px;
+  line-height: 41px;
+  margin: 19px 0 0 5px;
+}
