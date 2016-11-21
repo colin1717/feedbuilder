@@ -1,0 +1,14 @@
+.feedpicker {
+  background-color: white;
+  height: 500px;
+  padding: 10px;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+}
+
+.feedpicker-button {
+  width: 170px;
+}
