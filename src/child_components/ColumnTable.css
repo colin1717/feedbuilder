@@ -1,0 +1,10 @@
+.column-table {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.table {
+  text-align: center;
+}
