@@ -29,7 +29,8 @@ class FileInput extends Component{
     let reader = new FileReader();
     reader.onload = (data) => {
       data = reader.result;
-      console.log(data);
+
+      this.props.addCsv(data);
     }
     reader.readAsText(csv[0]);
   }

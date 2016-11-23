@@ -15,10 +15,18 @@ class App extends Component {
         <Header />
         <FeedPicker />
         <ColumnTable columns={ importColumns } />
-        <FileInput />
+        <FileInput addCsv={this._addCsv.bind(this)}/>
       </div>
 
     )
+  }
+
+  _addCsv(data) {
+    const newCsv = {
+      data
+    };
+    console.log('===pure text csv====');
+    console.log(newCsv);
   }
 }
 
