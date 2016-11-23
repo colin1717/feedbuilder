@@ -4,6 +4,7 @@ import Header from './child_components/Header';
 import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
 import FileInput from './child_components/FileInput';
+var Baby = require('babyparse');
 
 class App extends Component {
   render() {
@@ -25,9 +26,11 @@ class App extends Component {
     const newCsv = {
       data
     };
-    console.log('===pure text csv====');
-    console.log(newCsv);
+
+    newCsv.parsed = Baby.parse(newCsv.data);
+    console.log(newCsv.parsed);
   }
+
 }
 
 export default App;
