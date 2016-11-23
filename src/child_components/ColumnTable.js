@@ -42,7 +42,7 @@ class ColumnTable extends Component {
   }
 
   _toggleCheckbox(title) {
-    console.log('toggleCheckbox in ColumnTable is running, but it cant access presentColumns')
+    console.log('toggleCheckbox in ColumnTable is running for ' + this.title + ' but it cant access presentColumns');
   }
 
 }
