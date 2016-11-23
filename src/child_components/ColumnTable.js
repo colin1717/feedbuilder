@@ -23,7 +23,7 @@ class ColumnTable extends Component {
     } else {
       this.presentColumns.add(title)
     }
-    console.log('=====toggleCheckbox this=====');
+    console.log('=====presentColumns=====');
     console.log(this.presentColumns);
   }
 

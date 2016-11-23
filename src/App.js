@@ -3,6 +3,7 @@ import './App.css'
 import Header from './child_components/Header';
 import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
+import FileInput from './child_components/FileInput';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Header />
         <FeedPicker />
         <ColumnTable columns={ importColumns } />
+        <FileInput />
       </div>
 
     )

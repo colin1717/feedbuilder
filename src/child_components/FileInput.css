@@ -1,0 +1,23 @@
+.file-input {
+  background-color: white;
+  height: 160px;
+}
+
+.input-well {
+  background-color: #fcfcfc;
+}
+
+.input-well-container {
+  display: flex;
+  justify-content: center;
+}
+
+.file-input-form {
+  margin: auto;
+  text-align: center;
+}
+
+.input {
+  margin-left: 50px;
+  margin-bottom: 5px;
+}
