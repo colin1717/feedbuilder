@@ -4,14 +4,35 @@ import { Table } from 'react-bootstrap';
 import ColumnCheckbox from './ColumnCheckbox';
 
 class ColumnTable extends Component {
-
   componentWillMount(){
     this.presentColumns = new Set();
-    console.log(this.presentColumns)
+    console.log('====componentWillMount this=====');
+    console.log(this)
+  }
+
+  _testProps() {
+    console.log(this.props.columns)
+  }
+
+  _createCheckbox(column) {
+    return <ColumnCheckbox title={this.column.title} handleCheckboxChange={this._toggleCheckbox} key={this.column.title} />
+  }
+
+
+  _toggleCheckbox(title) {
+    if (this.presentColumns.has(title)){
+      this.presentColumns.delete(title)
+    } else {
+      this.presentColumns.add(title)
+    }
+    console.log('=====toggleCheckbox this=====');
+    console.log(this.presentColumns);
   }
 
   render() {
+
     let columns = this.props.columns;
+
     return (
       <div className='column-table'>
         <div className='col-sm-12'>
@@ -23,7 +44,7 @@ class ColumnTable extends Component {
             </thead>
             <tbody>
               <tr>
-                {(columns).map((column) => <td key={column.id}><ColumnCheckbox handleCheckboxChange={this._toggleCheckbox} title={column.title}  /></td> )}
+                {(columns).map((column) => <td key={column.id}><ColumnCheckbox handleCheckboxChange={this._toggleCheckbox.bind(this)} title={column.title}  /></td> )}
               </tr>
             </tbody>
           </Table>
@@ -31,18 +52,6 @@ class ColumnTable extends Component {
       </div>
 
     )
-  }
-
-  _testProps() {
-    console.log(this.props.columns)
-  }
-
-  _createCheckbox() {
-    return <ColumnCheckbox title={this.column.title} handleCheckboxChange={this._toggleCheckbox} key={this.column.title} />
-  }
-
-  _toggleCheckbox(title) {
-    console.log('toggleCheckbox in ColumnTable is running for ' + this.title + ' but it cant access presentColumns');
   }
 
 }
