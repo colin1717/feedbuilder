@@ -15,7 +15,7 @@ class App extends Component {
       <div>
         <Header />
         <FeedPicker />
-        <ColumnTable columns={ importColumns } />
+        <ColumnTable columns={ importColumns } passPresentColumns={this._passPresentColumns}/>
         <FileInput addCsv={this._addCsv.bind(this)}/>
       </div>
 
@@ -29,6 +29,11 @@ class App extends Component {
 
     newCsv.parsed = Baby.parse(newCsv.data);
     console.log(newCsv.parsed);
+  }
+
+  _passPresentColumns(presentColumns){
+    console.log('=====presentColumns=====');
+    console.log(presentColumns);
   }
 
 }

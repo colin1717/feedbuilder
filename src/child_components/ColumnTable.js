@@ -23,8 +23,7 @@ class ColumnTable extends Component {
     } else {
       this.presentColumns.add(title)
     }
-    console.log('=====presentColumns=====');
-    console.log(this.presentColumns);
+    this.props.passPresentColumns(this.presentColumns);
   }
 
   render() {
