@@ -11,6 +11,8 @@ class ColumnTable extends Component {
     }
     console.log('=====this.presentColumns=====');
     console.log(this.presentColumns);
+
+    this.props.passPresentColumns(this.presentColumns);
   }
 
   _testProps() {
