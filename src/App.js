@@ -4,6 +4,8 @@ import Header from './child_components/Header';
 import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
 import FileInput from './child_components/FileInput';
+import importConverter from './import-converter';
+
 var Baby = require('babyparse');
 
 class App extends Component {
@@ -16,9 +18,6 @@ class App extends Component {
 
     this._passPresentColumns = function(presentColumns){
       this.presentColumns = presentColumns;
-
-      console.log('===passPresentColumns====presentColumns=====');
-      console.log(this.presentColumns);
     }
 
     this._addCsv = function(data) {
@@ -27,11 +26,11 @@ class App extends Component {
       };
 
       newCsv.parsed = Baby.parse(newCsv.data);
+      console.log('newCsv.parsed');
       console.log(newCsv.parsed);
-      console.log('====this.presentColumns====');
-      console.log(this.presentColumns);
 
       this._buildPresentColumnsArray(this.presentColumns);
+      importConverter(newCsv.parsed.data, this.presentColumnsArray);
     }
 
     this._buildPresentColumnsArray = function(presentColumns){
