@@ -21,7 +21,7 @@ export function importConverter(jsonData, presentColumnsArray){
     <Anonymous>false</Anonymous>
     </UserProfileReference>
     <Title><![CDATA[${jsonData[i][columnIndexes.get('Title')]}]]></Title>
-    <ReviewText><![CDATA[${jsonData[columnIndexes.get('ReviewText')]}]]></ReviewText>
+    <ReviewText><![CDATA[${jsonData[i][columnIndexes.get('ReviewText')]}]]></ReviewText>
     <Rating>${jsonData[i][columnIndexes.get('Rating')]}</Rating>
     <IpAddress>${jsonData[i][columnIndexes.get('IpAddress')]}</IpAddress>
     <UserEmailAddress>${jsonData[i][columnIndexes.get('UserEmailAddress')]}</UserEmailAddress>
