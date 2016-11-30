@@ -21,3 +21,19 @@
   margin-left: 50px;
   margin-bottom: 5px;
 }
+
+.download-button-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.download-button {
+  width: 30%;
+  margin: auto;
+}
+
+.download-text {
+  margin: auto;
+  color: rgb(20,158,125);
+}

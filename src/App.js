@@ -5,6 +5,7 @@ import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
 import FileInput from './child_components/FileInput';
 import {importConverter} from './converters';
+import {Button, Well} from 'react-bootstrap';
 
 var Baby = require('babyparse');
 
@@ -12,6 +13,10 @@ class App extends Component {
 
   constructor(){
     super();
+
+    this.state = {
+      showDownloadButton: false
+    }
 
     this.presentColumns = new Set();
     this.presentColumnsArray = [];
@@ -31,6 +36,8 @@ class App extends Component {
 
       this._buildPresentColumnsArray(this.presentColumns);
       importConverter(newCsv.parsed.data, this.presentColumnsArray);
+
+      this._showDownloadButton();
     }
 
     this._buildPresentColumnsArray = function(presentColumns){
@@ -45,16 +52,35 @@ class App extends Component {
   render() {
 
     const importColumns = [{id: 1, title:'Product-ExternalId', required:true}, {id:2, title:'SubmissionTime', required: false}, {id:3, title:'Title',required:false}, {id:4, title:'ReviewText', required:false}, {id:5, title:'Rating',required: false}, {id:6, title:'IpAddress', required:false}, {id:7, title:'UserEmailAddress', required:false}, {id:8, title:'ReviewerLocation', required:false}, {id:9, title:'DisplayLocale', require:false}, {id:10, title:'User-ExternalId', required: false}];
+    let fileInput = <FileInput addCsv={this._addCsv.bind(this)}/>;
+
+    if (this.state.showDownloadButton){
+      fileInput = <div className='file-input'>
+      <div className='col-sm-4 input-well-container'/>
+      <Well className='download-button-wrapper input-well col-sm-4'>
+      <h5 className='download-text'>Your file is ready.</h5>
+      <br/>
+      <Button className='download-button'>Download</Button>
+      </Well>
+      <div className='col-sm-4'/>
+      </div>
+    }
 
     return (
       <div>
         <Header />
         <FeedPicker />
         <ColumnTable columns={ importColumns } passPresentColumns={this._passPresentColumns.bind(this)}/>
-        <FileInput addCsv={this._addCsv.bind(this)}/>
+        { fileInput }
       </div>
 
     )
+  }
+
+  _showDownloadButton(){
+    this.setState({
+      showDownloadButton: true
+    })
   }
 
 }
