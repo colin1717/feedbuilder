@@ -1,4 +1,4 @@
-export default function importConverter(jsonData, presentColumnsArray){
+export function importConverter(jsonData, presentColumnsArray){
   let columnIndexes = new Map();
 
   for (let presentColumn of presentColumnsArray){

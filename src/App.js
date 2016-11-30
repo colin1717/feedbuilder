@@ -4,7 +4,7 @@ import Header from './child_components/Header';
 import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
 import FileInput from './child_components/FileInput';
-import importConverter from './import-converter';
+import {importConverter} from './converters';
 
 var Baby = require('babyparse');
 
