@@ -7,13 +7,18 @@ import FileInput from './child_components/FileInput';
 var Baby = require('babyparse');
 
 class App extends Component {
+
   constructor(){
     super();
 
     this.presentColumns = new Set();
+    this.presentColumnsArray = [];
 
     this._passPresentColumns = function(presentColumns){
       this.presentColumns = presentColumns;
+
+      console.log('===passPresentColumns====presentColumns=====');
+      console.log(this.presentColumns);
     }
 
     this._addCsv = function(data) {
@@ -25,12 +30,17 @@ class App extends Component {
       console.log(newCsv.parsed);
       console.log('====this.presentColumns====');
       console.log(this.presentColumns);
+
+      this._buildPresentColumnsArray(this.presentColumns);
     }
 
-    this.test = function(){
-      console.log(this.presentColumns);
+    this._buildPresentColumnsArray = function(presentColumns){
+      for (let column of presentColumns){
+        this.presentColumnsArray.push(column);
+      }
+      console.log('====presentColumnsArray=====');
+      console.log(this.presentColumnsArray);
     }
-
   }
 
   render() {
@@ -43,7 +53,6 @@ class App extends Component {
         <FeedPicker />
         <ColumnTable columns={ importColumns } passPresentColumns={this._passPresentColumns.bind(this)}/>
         <FileInput addCsv={this._addCsv.bind(this)}/>
-        <button onClick={this.test.bind(this)}></button>
       </div>
 
     )

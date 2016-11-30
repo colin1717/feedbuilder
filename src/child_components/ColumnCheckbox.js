@@ -6,13 +6,13 @@ class ColumnCheckbox extends Component {
     super();
 
     this.state = {
-      isChecked: false
+      isChecked: true
     }
   }
 
   render() {
     return (
-      <input type='checkbox' value={this.props.title} onChange={this._toggleCheckbox.bind(this)} key={this.props.key} />
+      <input type='checkbox' checked={this.state.isChecked} value={this.props.title} onChange={this._toggleCheckbox.bind(this)} key={this.props.key} />
     )
   }
 

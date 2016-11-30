@@ -6,6 +6,11 @@ import ColumnCheckbox from './ColumnCheckbox';
 class ColumnTable extends Component {
   componentWillMount(){
     this.presentColumns = new Set();
+    for (let column of this.props.columns){
+      this.presentColumns.add(column.title)
+    }
+    console.log('=====this.presentColumns=====');
+    console.log(this.presentColumns);
   }
 
   _testProps() {
