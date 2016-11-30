@@ -4,7 +4,7 @@ import Header from './child_components/Header';
 import FeedPicker from './child_components/FeedPicker';
 import ColumnTable from './child_components/ColumnTable';
 import FileInput from './child_components/FileInput';
-import {importConverter} from './converters';
+import { importConverter, downloadXml } from './converters';
 import {Button, Well} from 'react-bootstrap';
 
 var Baby = require('babyparse');
@@ -35,7 +35,7 @@ class App extends Component {
       console.log(newCsv.parsed);
 
       this._buildPresentColumnsArray(this.presentColumns);
-      importConverter(newCsv.parsed.data, this.presentColumnsArray);
+      this.output = importConverter(newCsv.parsed.data, this.presentColumnsArray);
 
       this._showDownloadButton();
     }
@@ -60,7 +60,7 @@ class App extends Component {
       <Well className='download-button-wrapper input-well col-sm-4'>
       <h5 className='download-text'>Your file is ready.</h5>
       <br/>
-      <Button className='download-button'>Download</Button>
+      <Button onClick={downloadXml(this.output)} className='download-button'>Download</Button>
       </Well>
       <div className='col-sm-4'/>
       </div>

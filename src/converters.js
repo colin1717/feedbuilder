@@ -1,4 +1,4 @@
-export function importConverter(jsonData, presentColumnsArray){
+function importConverter(jsonData, presentColumnsArray){
   let columnIndexes = new Map();
 
   for (let presentColumn of presentColumnsArray){
@@ -37,5 +37,21 @@ export function importConverter(jsonData, presentColumnsArray){
 
   xmlOutput += `</Feed>`;
 
-  console.log(xmlOutput);
+  return xmlOutput;
 }
+
+function downloadXml(xmlOutput){
+  var blob = new Blob([xmlOutput], {type: "text/xml"});
+  var textToSaveAsURL = window.URL.createObjectURL(blob);
+
+  var downloadLink = document.createElement("a");
+  downloadLink.download = ('tempClientName' + '-content-import.xml');
+  downloadLink.innerHTML = "Download File";
+  downloadLink.href = textToSaveAsURL;
+  downloadLink.style.display = "none";
+  document.body.appendChild(downloadLink);
+
+  downloadLink.click();
+}
+
+export { importConverter, downloadXml }
