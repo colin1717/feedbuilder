@@ -60,7 +60,7 @@ class App extends Component {
       <Well className='download-button-wrapper input-well col-sm-4'>
       <h5 className='download-text'>Your file is ready.</h5>
       <br/>
-      <Button onClick={downloadXml(this.output)} className='download-button'>Download</Button>
+      <Button onClick={this._triggerDownload.bind(this)} className='download-button'>Download</Button>
       </Well>
       <div className='col-sm-4'/>
       </div>
@@ -81,6 +81,10 @@ class App extends Component {
     this.setState({
       showDownloadButton: true
     })
+  }
+
+  _triggerDownload(){
+    downloadXml(this.output);
   }
 
 }
